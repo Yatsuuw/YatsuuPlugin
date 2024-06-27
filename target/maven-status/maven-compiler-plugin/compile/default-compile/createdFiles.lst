@@ -1,0 +1,12 @@
+fr\yatsuu\yatsuuplugin\commands\GmCommand.class
+fr\yatsuu\yatsuuplugin\commands\YloadCommand.class
+fr\yatsuu\yatsuuplugin\commands\NightCommand.class
+fr\yatsuu\yatsuuplugin\commands\HealCommand.class
+fr\yatsuu\yatsuuplugin\commands\RainCommand.class
+fr\yatsuu\yatsuuplugin\commands\ThunderCommand.class
+fr\yatsuu\yatsuuplugin\commands\YplCommand.class
+fr\yatsuu\yatsuuplugin\YatsuuPlugin.class
+fr\yatsuu\yatsuuplugin\commands\ToggleHungerCommand.class
+fr\yatsuu\yatsuuplugin\commands\SunCommand.class
+fr\yatsuu\yatsuuplugin\commands\DayCommand.class
+fr\yatsuu\yatsuuplugin\commands\FeedCommand.class

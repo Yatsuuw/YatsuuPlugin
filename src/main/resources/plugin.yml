@@ -1,0 +1,70 @@
+name: YatsuuPlugin
+version: '${project.version}'
+main: fr.yatsuu.yatsuuplugin.YatsuuPlugin
+api-version: '1.21'
+authors:
+  - Yatsuu
+website: https://yatsuu.fr/
+description: Plugin taking the basics of some Essentials shortcuts. /ypl for more information's.
+
+commands:
+  day:
+    description: Turn time into day.
+    usage: /day
+    permission: yatsuuplugin.command.day
+    default: op
+  night:
+    description: Turn time into night.
+    usage: /night
+    permission: yatsuuplugin.command.night
+    default: op
+  sun:
+    description: Put the sunshine on.
+    usage: /sun
+    permission: yatsuuplugin.command.sun
+    default: op
+  rain:
+    description: Put the rain on.
+    usage: /rain
+    permission: yatsuuplugin.command.rain
+    default: op
+  thunder:
+    description: Put the storm on.
+    usage: /thunder
+    permission: yatsuuplugin.command.thunder
+    default: op
+  feed:
+    description: Feeds the targeted player or yourself.
+    usage: /feed [player]
+    permission: yatsuuplugin.command.feed
+    default: op
+  heal:
+    description: Treats the targeted player or yourself.
+    usage: /heal [player]
+    permission: yatsuuplugin.command.heal
+    default: op
+  ypl:
+    description: Lists the commands available for the plugin.
+    usage: /ypl
+    permission: yatsuuplugin.command.ypl
+    default: op
+  yload:
+    description: Reloads the plugin configuration.
+    usage: /yload
+    permission: yatsuuplugin.command.yload
+    default: op
+  gm:
+    description: Changes the player's game mode according to the number shown.
+    usage: /gm <mode> <player>
+    permission: yatsuuplugin.command.gm
+    default: op
+  togglehunger:
+    description: Activates or deactivates the loss of food for the targeted player or yourself.
+    usage: /togglehunger [player]
+    permission: yatsuuplugin.command.togglehunger
+    default: op
+  spawn:
+    description: Teleports the targeted player or yourself to the defined server spawn.
+    usage: /spawn [player]
+    permission: yatsuuplugin.command.spawn
+    default: op
