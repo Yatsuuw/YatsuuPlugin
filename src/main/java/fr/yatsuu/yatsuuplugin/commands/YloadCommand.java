@@ -34,25 +34,21 @@ public class YloadCommand implements CommandExecutor {
 
             ConfigurationReader config = YatsuuPlugin.getConfigReader();
 
-            if (! (sender instanceof Player player)) {
-
-                sender.sendMessage(ChatColor.RED + config.getConfiguration().getString("fail_reload"));
-                return true;
-
-            }
-
-            if (!player.hasPermission("yatsuuplugin.reload")) {
+            if (!sender.hasPermission("yatsuuplugin.reload")) {
 
                 String no_perm = Objects.requireNonNull(config.getConfiguration().getString("no_permission")).replace("{permission}", "yatsuuplugin.reload");
-                player.sendMessage(ChatColor.RED + no_perm);
+                sender.sendMessage(ChatColor.RED + no_perm);
                 return true;
 
             }
 
             configReader.reload();
-            player.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("success_reload"));
+            sender.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("success_reload"));
 
         }
+
         return true;
+
     }
+
 }

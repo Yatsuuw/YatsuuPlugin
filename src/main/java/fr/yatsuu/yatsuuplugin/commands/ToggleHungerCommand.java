@@ -17,11 +17,14 @@ import java.util.List;
 import java.util.Objects;
 
 public class ToggleHungerCommand implements CommandExecutor {
+
     private final YatsuuPlugin plugin;
     private ConfigurationReader config;
 
     public ToggleHungerCommand(YatsuuPlugin plugin) {
+
         this.plugin = plugin;
+
     }
 
     @Override
@@ -50,13 +53,6 @@ public class ToggleHungerCommand implements CommandExecutor {
             }
 
         } else {
-
-            if (! (sender instanceof Player)) {
-
-                sender.sendMessage(ChatColor.RED + "Cette commande peut uniquement être utilisée par un joueur.");
-                return true;
-
-            }
 
             target = (Player) sender;
 
