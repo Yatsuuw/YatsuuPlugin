@@ -53,6 +53,7 @@ flyspeed_usage: "Usage: /flyspeed <speed> [player]"
 flyspeed_invalid: "Invalid speed value. Please enter a number between 0.0 and 1.0."
 flyspeed_success_target: "Flight speed set to {speed} for {player}"
 flyspeed_success: "Flight speed set to {speed}."
+flyspeed_value: "Your flight speed is {speed}."
 
 teleport_spawn_message: "Zoup!"
 teleport_spawn_message_target: "You've just been teleported to the server spawn!"

@@ -34,9 +34,23 @@ public class FlySpeedCommand implements CommandExecutor {
 
         }
 
-        if (args.length < 1 || args.length > 2) {
+        Player targetPlayer;
 
-            sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("flyspeed_usage"));
+        if (args.length == 0) {
+
+            if (! (sender instanceof Player)) {
+
+                sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("target_required"));
+
+                return true;
+
+            }
+
+            targetPlayer = (Player) sender;
+            float currentSpeed = targetPlayer.getFlySpeed();
+
+            String currentSpeedMessage = String.format(Objects.requireNonNull(plugin.getConfig().getString("flyspeed_value")).replace("{speed}", String.valueOf(currentSpeed)));
+            targetPlayer.sendMessage(ChatColor.GREEN + currentSpeedMessage);
 
             return true;
 
@@ -63,8 +77,6 @@ public class FlySpeedCommand implements CommandExecutor {
             return true;
 
         }
-
-        Player targetPlayer;
 
         if (args.length == 2) {
 
