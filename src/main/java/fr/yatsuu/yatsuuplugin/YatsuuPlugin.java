@@ -77,6 +77,7 @@ public class YatsuuPlugin extends JavaPlugin implements Listener {
         this.getCommand("thunder").setExecutor(new ThunderCommand());
 
         this.getCommand("feed").setExecutor(new FeedCommand());
+        this.getCommand("togglehunger").setExecutor(new ToggleHungerCommand(this));
         this.getCommand("heal").setExecutor(new HealCommand());
 
         this.getCommand("ypl").setExecutor(new YplCommand(this));
@@ -84,8 +85,11 @@ public class YatsuuPlugin extends JavaPlugin implements Listener {
 
         this.getCommand("gm").setExecutor(new GmCommand(this));
 
-        this.getCommand("togglehunger").setExecutor(new ToggleHungerCommand(this));
         this.getCommand("spawn").setExecutor(new SpawnCommand());
+        this.getCommand("setspawn").setExecutor(new SetSpawnCommand(this, config));
+
+        this.getCommand("fly").setExecutor(new FlyCommand(this));
+        this.getCommand("flyspeed").setExecutor(new FlySpeedCommand(this));
 
     }
 

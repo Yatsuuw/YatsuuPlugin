@@ -68,3 +68,18 @@ commands:
     usage: /spawn [player]
     permission: yatsuuplugin.command.spawn
     default: op
+  setspawn:
+    description: Define the server spawn.
+    usage: /setspawn
+    permission: yatsuuplugin.command.setspawn
+    default: op
+  fly:
+    description: Activate or deactivate the player's flight mode.
+    usage: /fly [player]
+    permission: yatsuuplugin.command.fly
+    default: op
+  flyspeed:
+    description: Change the player's flight speed.
+    usage: /flyspeed <speed>
+    permission: yatsuuplugin.command.flyspeed
+    default: op

@@ -45,16 +45,16 @@ public class SpawnCommand implements CommandExecutor {
 
         try {
 
-            target.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("teleport_message"));
+            target.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("teleport_spawn_message"));
 
             if (sender != target) {
 
-                sender.sendMessage(ChatColor.GREEN + Objects.requireNonNull(config.getConfiguration().getString("sender_teleport_message")).replace("%player%", target.getName()));
-                target.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("teleport_message_target"));
+                sender.sendMessage(ChatColor.GREEN + Objects.requireNonNull(config.getConfiguration().getString("sender_teleport_spawn_message")).replace("%player%", target.getName()));
+                target.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("teleport_spawn_message_target"));
 
             } else {
 
-                target.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("teleport_message_target"));
+                target.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("teleport_spawn_message_target"));
 
             }
 
@@ -68,7 +68,13 @@ public class SpawnCommand implements CommandExecutor {
         double y = config.getConfiguration().getDouble("spawn.y");
         double z = config.getConfiguration().getDouble("spawn.z");
 
-        Location spawn = new Location(target.getWorld(), x, y, z);
+        float yaw = (float) config.getConfiguration().getDouble("spawn.yaw");
+        float pitch = (float) config.getConfiguration().getDouble("spawn.pitch");
+
+        String worldName = config.getConfiguration().getString("spawn.world");
+
+        assert worldName != null;
+        Location spawn = new Location(Bukkit.getWorld(worldName), x, y, z, yaw, pitch);
 
         target.teleport(spawn);
 

@@ -1,6 +1,7 @@
 fr\yatsuu\yatsuuplugin\commands\GmCommand.class
 fr\yatsuu\yatsuuplugin\commands\YloadCommand.class
 fr\yatsuu\yatsuuplugin\commands\NightCommand.class
+fr\yatsuu\yatsuuplugin\commands\FlyCommand.class
 fr\yatsuu\yatsuuplugin\commands\HealCommand.class
 fr\yatsuu\yatsuuplugin\commands\RainCommand.class
 fr\yatsuu\yatsuuplugin\commands\ThunderCommand.class

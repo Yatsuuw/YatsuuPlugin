@@ -38,14 +38,31 @@ hunger_disabled_target: "Food loss has been disabled for %target%."
 no_target: "The specified player cannot be found."
 target_required: "You must specify a player."
 no_permission: "You do not have {permission} to run this command."
+console_command_sender: "This command can only be executed by a player."
 
 join_message: "§a+ §f%s"
 quit_message: "§1- §f%s"
 
-teleport_message: "Zoup!"
-teleport_message_target: "You've just been teleported to the server spawn!"
-sender_teleport_message: "The player %player% has been teleported to the server spawn."
+fly_enabled: "Flight mode has been enabled."
+fly_target_enabled: "Flight mode has been enabled for "
+fly_disabled: "Flight mode has been disabled."
+fly_target_disabled: "Flight mode has been disabled for "
+
+flyspeed_set: "Flight speed set to {speed}."
+flyspeed_usage: "Usage: /flyspeed <speed> [player]"
+flyspeed_invalid: "Invalid speed value. Please enter a number between 0.0 and 1.0."
+flyspeed_success_target: "Flight speed set to {speed} for {player}"
+flyspeed_success: "Flight speed set to {speed}."
+
+teleport_spawn_message: "Zoup!"
+teleport_spawn_message_target: "You've just been teleported to the server spawn!"
+sender_teleport_spawn_message: "The player %player% has been teleported to the server spawn."
+spawn_set: "Spawn location and direction set !"
+
 spawn:
+  world: world
   x: 0
   y: 70
   z: 0
+  yaw: 0
+  pitch: 0
