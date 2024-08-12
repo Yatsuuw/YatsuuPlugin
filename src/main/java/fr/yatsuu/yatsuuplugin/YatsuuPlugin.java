@@ -2,6 +2,7 @@ package fr.yatsuu.yatsuuplugin;
 
 import fr.yatsuu.yatsuuplugin.commands.*;
 import fr.yatsuu.yatsuuplugin.config.ConfigurationReader;
+import fr.yatsuu.yatsuuplugin.events.FlyParticleListener;
 import fr.yatsuu.yatsuuplugin.events.HungerEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -95,8 +96,10 @@ public class YatsuuPlugin extends JavaPlugin implements Listener {
 
     private void registerEvents() {
 
-        PluginManager pm = Bukkit.getPluginManager();
+        PluginManager pm = getServer().getPluginManager();
+
         pm.registerEvents(new HungerEvent(this), this);
+        pm.registerEvents(new FlyParticleListener(this), this);
 
     }
 

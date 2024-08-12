@@ -34,9 +34,9 @@ public class YloadCommand implements CommandExecutor {
 
             ConfigurationReader config = YatsuuPlugin.getConfigReader();
 
-            if (!sender.hasPermission("yatsuuplugin.reload")) {
+            if (!sender.hasPermission("yatsuuplugin.command.yload")) {
 
-                String no_perm = Objects.requireNonNull(config.getConfiguration().getString("no_permission")).replace("{permission}", "yatsuuplugin.reload");
+                String no_perm = Objects.requireNonNull(config.getConfiguration().getString("no_permission")).replace("{permission}", "yatsuuplugin.command.reload");
                 sender.sendMessage(ChatColor.RED + no_perm);
                 return true;
 
