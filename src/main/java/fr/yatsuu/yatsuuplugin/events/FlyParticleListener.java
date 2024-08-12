@@ -8,6 +8,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.Objects;
+
 public class FlyParticleListener implements Listener {
 
     private final YatsuuPlugin plugin;
@@ -40,15 +42,15 @@ public class FlyParticleListener implements Listener {
 
                     player.getWorld().spawnParticle(
                             Particle.CLOUD, // Type of particle
-                            player.getLocation().subtract(0, 1, 0), // Location (under the player)
-                            10, // Number of particles
+                            player.getLocation().subtract(0, 0.5, 0), // Location (under the player)
+                            1, // Number of particles
                             0.3, 0.1, 0.3, // Offset for the spread
                             0 // Speed of particles (0 for default speed)
                     );
 
                 }
 
-            }.runTaskTimer(plugin, 0L, 5L);
+            }.runTaskTimer(plugin, 0L, 70L);
 
         }
 

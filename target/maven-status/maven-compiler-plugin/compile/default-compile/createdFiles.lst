@@ -9,5 +9,7 @@ fr\yatsuu\yatsuuplugin\commands\YplCommand.class
 fr\yatsuu\yatsuuplugin\YatsuuPlugin.class
 fr\yatsuu\yatsuuplugin\commands\ToggleHungerCommand.class
 fr\yatsuu\yatsuuplugin\commands\SunCommand.class
+fr\yatsuu\yatsuuplugin\events\FlyParticleListener$1.class
+fr\yatsuu\yatsuuplugin\events\FlyParticleListener.class
 fr\yatsuu\yatsuuplugin\commands\DayCommand.class
 fr\yatsuu\yatsuuplugin\commands\FeedCommand.class
