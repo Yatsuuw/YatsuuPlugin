@@ -1,6 +1,7 @@
 package fr.yatsuu.yatsuuplugin.events;
 
 import fr.yatsuu.yatsuuplugin.YatsuuPlugin;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.Particle;
 import org.bukkit.event.EventHandler;
@@ -25,7 +26,7 @@ public class FlyParticleListener implements Listener {
 
         Player player = event.getPlayer();
 
-        if (player.getAllowFlight() && player.isFlying()) {
+        if (player.getAllowFlight() && player.isFlying() && player.getGameMode() != GameMode.CREATIVE) {
 
             // Generate particles under the player
             new BukkitRunnable() {
