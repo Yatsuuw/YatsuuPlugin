@@ -26,7 +26,7 @@ public class FlyParticleListener implements Listener {
 
         Player player = event.getPlayer();
 
-        if (player.getAllowFlight() && player.isFlying() && player.getGameMode() != GameMode.CREATIVE) {
+        if (player.getAllowFlight() && player.isFlying() && player.getGameMode() != GameMode.CREATIVE && player.getGameMode() != GameMode.SPECTATOR) {
 
             // Generate particles under the player
             new BukkitRunnable() {
