@@ -62,14 +62,6 @@ public class ToggleHungerCommand implements CommandExecutor {
         FileConfiguration playerStates = plugin.playerStates;
         config = YatsuuPlugin.getConfigReader();
 
-        if (!sender.isOp() && !target.equals(sender)) {
-
-            String no_perm = Objects.requireNonNull(config.getConfiguration().getString("no_permission")).replace("{permission}", "yatsuuplugin.command.th");
-            sender.sendMessage(ChatColor.RED + no_perm);
-            return true;
-
-        }
-
         List<String> playerList = playerStates.getStringList("players");
 
         if (sender != target) {
