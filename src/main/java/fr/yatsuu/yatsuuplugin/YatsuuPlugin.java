@@ -4,24 +4,22 @@ import fr.yatsuu.yatsuuplugin.commands.*;
 import fr.yatsuu.yatsuuplugin.config.ConfigurationReader;
 import fr.yatsuu.yatsuuplugin.events.FlyParticleListener;
 import fr.yatsuu.yatsuuplugin.events.HungerEvent;
-import org.bukkit.Bukkit;
+import fr.yatsuu.yatsuuplugin.events.PlayerJoinQuitListener;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
-import java.util.Objects;
 
 public class YatsuuPlugin extends JavaPlugin implements Listener {
 
     public File playerStatesFile = new File(getDataFolder(), "playerstates.yml");
+
     public FileConfiguration playerStates = YamlConfiguration.loadConfiguration(playerStatesFile);
+
     public static ConfigurationReader config;
 
     @Override
@@ -29,6 +27,7 @@ public class YatsuuPlugin extends JavaPlugin implements Listener {
 
         // Plugin startup logic
         config = new ConfigurationReader(this, "config.yml");
+
         saveDefaultConfig();
 
         getLogger().info(config.getConfiguration().getString("plugin_on"));
@@ -40,7 +39,9 @@ public class YatsuuPlugin extends JavaPlugin implements Listener {
     }
 
     public static ConfigurationReader getConfigReader() {
+
         return config;
+
     }
 
     @Override
@@ -48,22 +49,6 @@ public class YatsuuPlugin extends JavaPlugin implements Listener {
 
         // Plugin shutdown logic
         getLogger().info(config.getConfiguration().getString("plugin_off"));
-
-    }
-
-    @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event) {
-
-        Player player = event.getPlayer();
-        event.setJoinMessage(String.format(Objects.requireNonNull(config.getConfiguration().getString("join_message")), player.getName()));
-
-    }
-
-    @EventHandler
-    public void onPlayerQuit(PlayerQuitEvent event) {
-
-        Player player = event.getPlayer();
-        event.setQuitMessage(String.format(Objects.requireNonNull(config.getConfiguration().getString("quit_message")), player.getName()));
 
     }
 
@@ -100,6 +85,7 @@ public class YatsuuPlugin extends JavaPlugin implements Listener {
 
         pm.registerEvents(new HungerEvent(this), this);
         pm.registerEvents(new FlyParticleListener(this), this);
+        pm.registerEvents(new PlayerJoinQuitListener(this), this);
 
     }
 

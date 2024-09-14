@@ -1,11 +1,12 @@
+main: fr.yatsuu.yatsuuplugin.YatsuuPlugin
 name: YatsuuPlugin
 version: '1.0'
-main: fr.yatsuu.yatsuuplugin.YatsuuPlugin
 api-version: '1.21'
+depend: [Vault]
 authors:
   - Yatsuu
-website: https://yatsuu.fr/
 description: Plugin taking the basics of some Essentials shortcuts. /ypl for more information's.
+website: https://yatsuu.fr/
 
 commands:
   day:

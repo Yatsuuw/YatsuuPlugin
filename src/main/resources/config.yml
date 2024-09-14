@@ -40,8 +40,8 @@ target_required: "You must specify a player."
 no_permission: "You do not have {permission} to run this command."
 console_command_sender: "This command can only be executed by a player."
 
-join_message: "§a+ §f%s"
-quit_message: "§1- §f%s"
+join_message: "§a+ %prefix% §f%name%"
+quit_message: "§1- %prefix% §f%name%"
 
 fly_enabled: "Flight mode has been enabled."
 fly_target_enabled: "Flight mode has been enabled for "
