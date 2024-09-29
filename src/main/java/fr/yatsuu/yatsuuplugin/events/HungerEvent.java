@@ -11,6 +11,7 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import java.util.List;
+import java.util.Objects;
 
 public class HungerEvent implements Listener {
 
@@ -60,11 +61,11 @@ public class HungerEvent implements Listener {
 
             if (playerList.contains(playerUUID)) {
 
-                player.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("hunger_disabled"));
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("hunger_disabled"))));
 
             } else {
 
-                player.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("hunger_enabled"));
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("hunger_enabled"))));
 
             }
 

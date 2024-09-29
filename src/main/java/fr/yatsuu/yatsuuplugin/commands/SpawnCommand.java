@@ -27,7 +27,7 @@ public class SpawnCommand implements CommandExecutor {
 
             if (target == null) {
 
-                sender.sendMessage(ChatColor.RED + config.getConfiguration().getString("no_target"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("no_target"))));
                 return true;
 
             }
@@ -38,23 +38,23 @@ public class SpawnCommand implements CommandExecutor {
 
         } else {
 
-            sender.sendMessage(ChatColor.RED + config.getConfiguration().getString("target_required"));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("target_required"))));
             return true;
 
         }
 
         try {
 
-            target.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("teleport_spawn_message"));
+            target.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("teleport_spawn_message"))));
 
             if (sender != target) {
 
-                sender.sendMessage(ChatColor.GREEN + Objects.requireNonNull(config.getConfiguration().getString("sender_teleport_spawn_message")).replace("%player%", target.getName()));
-                target.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("teleport_spawn_message_target"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("sender_teleport_spawn_message")).replace("%player%", target.getName())));
+                target.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("teleport_spawn_message_target"))));
 
             } else {
 
-                target.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("teleport_spawn_message_target"));
+                target.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("teleport_spawn_message_target"))));
 
             }
 

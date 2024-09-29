@@ -21,12 +21,12 @@ public class RainCommand implements CommandExecutor {
         if (!sender.hasPermission("yatsuuplugin.command.rain")) {
 
             String no_perm = Objects.requireNonNull(config.getConfiguration().getString("no_permission")).replace("{permission}", "yatsuuplugin.command.rain");
-            sender.sendMessage(ChatColor.RED + no_perm);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', no_perm));
 
         } else {
 
             Bukkit.getWorlds().forEach(world -> world.setStorm(true));
-            sender.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("success_rain"));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("success_rain"))));
 
         }
         return true;

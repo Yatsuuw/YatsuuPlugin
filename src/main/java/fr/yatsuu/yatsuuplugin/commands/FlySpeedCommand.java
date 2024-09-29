@@ -27,8 +27,8 @@ public class FlySpeedCommand implements CommandExecutor {
 
         if (!sender.hasPermission("yatsuuplugin.command.flyspeed")) {
 
-            String noPermMessage = Objects.requireNonNull(plugin.getConfig().getString("no_permission")).replace("{permission}", "yatsuuplugin.command.flyspeed");
-            sender.sendMessage(ChatColor.RED + noPermMessage);
+            String no_perm = Objects.requireNonNull(plugin.getConfig().getString("no_permission")).replace("{permission}", "yatsuuplugin.command.flyspeed");
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', no_perm));
 
             return true;
 
@@ -40,7 +40,7 @@ public class FlySpeedCommand implements CommandExecutor {
 
             if (! (sender instanceof Player)) {
 
-                sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("target_required"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("target_required"))));
 
                 return true;
 
@@ -50,7 +50,7 @@ public class FlySpeedCommand implements CommandExecutor {
             float currentSpeed = targetPlayer.getFlySpeed();
 
             String currentSpeedMessage = String.format(Objects.requireNonNull(plugin.getConfig().getString("flyspeed_value")).replace("{speed}", String.valueOf(currentSpeed)));
-            targetPlayer.sendMessage(ChatColor.GREEN + currentSpeedMessage);
+            targetPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', currentSpeedMessage));
 
             return true;
 
@@ -64,7 +64,7 @@ public class FlySpeedCommand implements CommandExecutor {
 
             if (speed < 0 || speed > 1) {
 
-                sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("flyspeed_invalid"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("flyspeed_invalid"))));
 
                 return true;
 
@@ -72,7 +72,7 @@ public class FlySpeedCommand implements CommandExecutor {
 
         } catch (NumberFormatException e) {
 
-            sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("flyspeed_invalid"));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("flyspeed_invalid"))));
 
             return true;
 
@@ -84,7 +84,7 @@ public class FlySpeedCommand implements CommandExecutor {
 
             if (!offlinePlayer.isOnline()) {
 
-                sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("no_target"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("no_target"))));
 
                 return true;
 
@@ -96,7 +96,7 @@ public class FlySpeedCommand implements CommandExecutor {
 
             if (! (sender instanceof Player)) {
 
-                sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("target_required"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("target_required"))));
 
                 return true;
 
@@ -110,12 +110,12 @@ public class FlySpeedCommand implements CommandExecutor {
         targetPlayer.setFlySpeed(speed);
 
         String successMessage = Objects.requireNonNull(plugin.getConfig().getString("flyspeed_success")).replace("{speed}", String.valueOf(speed));
-        targetPlayer.sendMessage(ChatColor.GREEN + successMessage);
+        targetPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', successMessage));
 
         if (targetPlayer != sender) {
 
             String successMessageTarget = Objects.requireNonNull(plugin.getConfig().getString("flyspeed_success_target")).replace("{player}", targetPlayer.getName()).replace("{speed}", String.valueOf(speed));
-            sender.sendMessage(ChatColor.GREEN + successMessageTarget);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', successMessageTarget));
 
         }
 

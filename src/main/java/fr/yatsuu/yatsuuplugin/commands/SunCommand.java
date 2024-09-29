@@ -22,12 +22,12 @@ public class SunCommand implements CommandExecutor {
         if (!sender.hasPermission("yatsuuplugin.command.sun")) {
 
             String no_perm = Objects.requireNonNull(config.getConfiguration().getString("no_permission")).replace("{permission}", "yatsuuplugin.command.sun");
-            sender.sendMessage(ChatColor.RED + no_perm);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', no_perm));
 
         } else {
 
             Bukkit.getWorlds().forEach(world -> world.setStorm(false));
-            sender.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("success_sun"));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("success_sun"))));
 
         }
         return true;

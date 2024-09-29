@@ -27,8 +27,8 @@ public class FlyCommand implements CommandExecutor {
 
         if (!sender.hasPermission("yatsuuplugin.command.fly")) {
 
-            String noPermMessage = Objects.requireNonNull(plugin.getConfig().getString("no_permission")).replace("{permission}", "yatsuuplugin.command.fly");
-            sender.sendMessage(ChatColor.RED + noPermMessage);
+            String no_perm = Objects.requireNonNull(plugin.getConfig().getString("no_permission")).replace("{permission}", "yatsuuplugin.command.fly");
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', no_perm));
 
             return true;
 
@@ -42,7 +42,7 @@ public class FlyCommand implements CommandExecutor {
 
             if (!offlinePlayer.isOnline()) {
 
-                sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("no_target"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("no_target"))));
 
                 return true;
 
@@ -54,7 +54,7 @@ public class FlyCommand implements CommandExecutor {
 
             if (! (sender instanceof Player)) {
 
-                sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("target_required"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("target_required"))));
 
                 return true;
 
@@ -71,12 +71,12 @@ public class FlyCommand implements CommandExecutor {
         targetPlayer.setFlying(!isFlying);
 
         String flyStatusMessage = isFlying ? plugin.getConfig().getString("fly_disabled") : plugin.getConfig().getString("fly_enabled");
-        targetPlayer.sendMessage(ChatColor.GREEN + Objects.requireNonNull(flyStatusMessage));
+        targetPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(flyStatusMessage)));
 
         if (targetPlayer != sender) {
 
             String senderMessage = isFlying ? plugin.getConfig().getString("fly_target_disabled") + targetPlayer.getName() + "." : plugin.getConfig().getString("fly_target_enabled") + targetPlayer.getName() + ".";
-            sender.sendMessage(ChatColor.GREEN + senderMessage);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', senderMessage));
 
         }
 

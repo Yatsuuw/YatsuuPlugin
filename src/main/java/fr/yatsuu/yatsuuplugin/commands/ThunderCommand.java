@@ -22,7 +22,7 @@ public class ThunderCommand implements CommandExecutor {
         if (!sender.hasPermission("yatsuuplugin.command.thunder")) {
 
             String no_perm = Objects.requireNonNull(config.getConfiguration().getString("no_permission")).replace("{permission}", "yatsuuplugin.command.thunder");
-            sender.sendMessage(ChatColor.RED + no_perm);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', no_perm));
 
         } else {
 
@@ -30,7 +30,7 @@ public class ThunderCommand implements CommandExecutor {
                 world.setStorm(true);
                 world.setThundering(true);
             });
-            sender.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("success_thunder"));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("success_thunder"))));
 
         }
         return true;

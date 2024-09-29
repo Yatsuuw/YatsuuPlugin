@@ -25,13 +25,26 @@ public class YplCommand implements CommandExecutor {
         if (!sender.hasPermission("yatsuuplugin.command.ypl")) {
 
             String no_perm = Objects.requireNonNull(config.getConfiguration().getString("no_permission")).replace("{permission}", "yatsuuplugin.command.ypl");
-            sender.sendMessage(ChatColor.RED + no_perm);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', no_perm));
 
         } else {
 
-            sender.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("commands"));
+            StringBuilder response = new StringBuilder();
 
-            plugin.getDescription().getCommands().forEach((cmd, desc) -> sender.sendMessage(ChatColor.YELLOW + "/" + cmd + ": " + desc.get("description") ));
+            response.append(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("commands")))).append("\n");
+
+            String commandFormat = config.getConfiguration().getString("command_format");
+
+            plugin.getDescription().getCommands().forEach((cmd, desc) -> {
+
+                assert commandFormat != null;
+                String formattedCommand = commandFormat.replace("{command}", cmd).replace("{description}", (CharSequence) desc.get("description"));
+
+                response.append(ChatColor.translateAlternateColorCodes('&', formattedCommand)).append("\n");
+
+            });
+
+            sender.sendMessage(response.toString());
 
         }
         return true;

@@ -23,7 +23,7 @@ public class HealCommand implements CommandExecutor {
         if (!sender.hasPermission("yatsuuplugin.command.heal")) {
 
             String no_perm = Objects.requireNonNull(config.getConfiguration().getString("no_permission")).replace("{permission}", "yatsuuplugin.command.heal");
-            sender.sendMessage(ChatColor.RED + no_perm);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', no_perm));
 
         } else {
 
@@ -35,7 +35,7 @@ public class HealCommand implements CommandExecutor {
 
                 if (target == null) {
 
-                    sender.sendMessage(ChatColor.RED + config.getConfiguration().getString("no_target"));
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("no_target"))));
                     return true;
 
                 }
@@ -46,7 +46,7 @@ public class HealCommand implements CommandExecutor {
 
             } else {
 
-                sender.sendMessage(ChatColor.RED + config.getConfiguration().getString("target_required"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("target_required"))));
                 return true;
 
             }
@@ -55,12 +55,12 @@ public class HealCommand implements CommandExecutor {
 
             if (sender != target) {
 
-                sender.sendMessage(ChatColor.GREEN + Objects.requireNonNull(config.getConfiguration().getString("target_success_heal")).replace("%target%", target.getName()));
-                target.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("success_heal"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("target_success_heal")).replace("%target%", target.getName())));
+                target.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("success_heal"))));
 
             } else {
 
-                sender.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("success_heal"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("success_heal"))));
             }
 
         }

@@ -28,22 +28,14 @@ public class YloadCommand implements CommandExecutor {
         if (!sender.hasPermission("yatsuuplugin.command.yload")) {
 
             String no_perm = Objects.requireNonNull(configFile.getConfiguration().getString("no_permission")).replace("{permission}", "yatsuuplugin.command.yload");
-            sender.sendMessage(ChatColor.RED + no_perm);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', no_perm));
 
         } else {
 
             ConfigurationReader config = YatsuuPlugin.getConfigReader();
 
-            if (!sender.hasPermission("yatsuuplugin.command.yload")) {
-
-                String no_perm = Objects.requireNonNull(config.getConfiguration().getString("no_permission")).replace("{permission}", "yatsuuplugin.command.reload");
-                sender.sendMessage(ChatColor.RED + no_perm);
-                return true;
-
-            }
-
             configReader.reload();
-            sender.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("success_reload"));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("success_reload"))));
 
         }
 

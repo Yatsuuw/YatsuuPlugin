@@ -15,11 +15,14 @@ import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ToggleHungerCommand implements CommandExecutor {
 
     private final YatsuuPlugin plugin;
     private ConfigurationReader config;
+    private static final Logger logger = Bukkit.getLogger();
 
     public ToggleHungerCommand(YatsuuPlugin plugin) {
 
@@ -33,7 +36,7 @@ public class ToggleHungerCommand implements CommandExecutor {
         if (!sender.hasPermission("yatsuuplugin.command.togglehunger")) {
 
             String no_perm = Objects.requireNonNull(config.getConfiguration().getString("no_permission")).replace("{permission}", "yatsuuplugin.command.togglehunger");
-            sender.sendMessage(ChatColor.RED + no_perm);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', no_perm));
 
             return true;
 
@@ -47,7 +50,7 @@ public class ToggleHungerCommand implements CommandExecutor {
 
             if (target == null) {
 
-                sender.sendMessage(ChatColor.RED + config.getConfiguration().getString("no_target"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("no_target"))));
                 return true;
 
             }
@@ -69,14 +72,14 @@ public class ToggleHungerCommand implements CommandExecutor {
             if (playerList.contains(playerUUID)) {
 
                 playerList.remove(playerUUID);
-                target.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("hunger_enabled"));
-                sender.sendMessage(ChatColor.GREEN + Objects.requireNonNull(config.getConfiguration().getString("hunger_enabled_target")).replace("%target%", target.getName()));
+                target.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("hunger_enabled"))));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("hunger_enabled_target")).replace("%target%", target.getName())));
 
             } else {
 
                 playerList.add(playerUUID);
-                target.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("hunger_disabled"));
-                sender.sendMessage(ChatColor.GREEN + Objects.requireNonNull(config.getConfiguration().getString("hunger_disabled_target")).replace("%target%", target.getName()));
+                target.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("hunger_disabled"))));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("hunger_disabled_target")).replace("%target%", target.getName())));
 
             }
 
@@ -85,12 +88,12 @@ public class ToggleHungerCommand implements CommandExecutor {
             if (playerList.contains(playerUUID)) {
 
                 playerList.remove(playerUUID);
-                sender.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("hunger_enabled"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("hunger_enabled"))));
 
             } else {
 
                 playerList.add(playerUUID);
-                sender.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("hunger_disabled"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("hunger_disabled"))));
 
             }
 
@@ -104,7 +107,7 @@ public class ToggleHungerCommand implements CommandExecutor {
 
         } catch (IOException e) {
 
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "An error occurred while saving the player states file", e);
 
         }
 

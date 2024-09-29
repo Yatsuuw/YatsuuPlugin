@@ -30,13 +30,13 @@ public class SetSpawnCommand implements CommandExecutor {
         if (!sender.hasPermission("yatsuuplugin.command.setspawn")) {
 
             String no_perm = Objects.requireNonNull(plugin.getConfig().getString("no_permission")).replace("{permission}", "yatsuuplugin.command.setspawn");
-            sender.sendMessage(ChatColor.RED + no_perm);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', no_perm));
 
         } else {
 
             if (! (sender instanceof Player player)) {
 
-                sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("console_command_sender"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("console_command_sender"))));
 
                 return true;
 
@@ -56,7 +56,7 @@ public class SetSpawnCommand implements CommandExecutor {
 
             plugin.saveConfig();
 
-            player.sendMessage(ChatColor.YELLOW + plugin.getConfig().getString("spawn_set"));
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("spawn_set"))));
 
             configReader.reload();
 

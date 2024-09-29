@@ -22,12 +22,12 @@ public class NightCommand implements CommandExecutor {
         if (!sender.hasPermission("yatsuuplugin.command.night")) {
 
             String no_perm = Objects.requireNonNull(config.getConfiguration().getString("no_permission")).replace("{permission}", "yatsuuplugin.command.night");
-            sender.sendMessage(ChatColor.RED + no_perm);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', no_perm));
 
         } else {
 
             Bukkit.getWorlds().forEach(world -> world.setTime(13000));
-            sender.sendMessage(ChatColor.GREEN + config.getConfiguration().getString("success_night"));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("success_night"))));
 
         }
         return true;

@@ -28,13 +28,13 @@ public class GmCommand implements CommandExecutor {
         if (!sender.hasPermission("yatsuuplugin.command.gm")) {
 
             String no_perm = Objects.requireNonNull(config.getConfiguration().getString(ChatColor.RED + "no_permission")).replace("{permission}", "yatsuuplugin.command.gm");
-            sender.sendMessage(ChatColor.RED + no_perm);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', no_perm));
 
         } else {
 
             if (args.length < 1 || args.length > 2) {
 
-                sender.sendMessage(ChatColor.RED + config.getConfiguration().getString("usage_gm"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("usage_gm"))));
                 return true;
 
             }
@@ -47,7 +47,7 @@ public class GmCommand implements CommandExecutor {
 
                 if (target == null) {
 
-                    sender.sendMessage(ChatColor.RED + config.getConfiguration().getString("no_target"));
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("no_target"))));
                     return true;
 
                 }
@@ -59,7 +59,7 @@ public class GmCommand implements CommandExecutor {
 
                 } else {
 
-                    sender.sendMessage(ChatColor.RED + config.getConfiguration().getString("target_required"));
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("target_required"))));
                     return true;
 
                 }
@@ -75,7 +75,7 @@ public class GmCommand implements CommandExecutor {
                     mode = config.getConfiguration().getString("gm0_name");
                     plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), "gamemode survival %player%".replace("%player%", target.getName()));
                     assert mode != null;
-                    sender.sendMessage(ChatColor.GREEN + Objects.requireNonNull(config.getConfiguration().getString("success_gm")).replace("%target%", target.getName()).replace("%mode%", mode));
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("success_gm")).replace("%target%", target.getName()).replace("%mode%", mode)));
 
                 }
 
@@ -84,7 +84,7 @@ public class GmCommand implements CommandExecutor {
                     mode = config.getConfiguration().getString("gm1_name");
                     plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), "gamemode creative %player%".replace("%player%", target.getName()));
                     assert mode != null;
-                    sender.sendMessage(ChatColor.GREEN + Objects.requireNonNull(config.getConfiguration().getString("success_gm")).replace("%target%", target.getName()).replace("%mode%", mode));
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("success_gm")).replace("%target%", target.getName()).replace("%mode%", mode)));
 
                 }
 
@@ -93,7 +93,7 @@ public class GmCommand implements CommandExecutor {
                     mode = config.getConfiguration().getString("gm2_name");
                     plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), "gamemode adventure %player%".replace("%player%", target.getName()));
                     assert mode != null;
-                    sender.sendMessage(ChatColor.GREEN + Objects.requireNonNull(config.getConfiguration().getString("success_gm")).replace("%target%", target.getName()).replace("%mode%", mode));
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("success_gm")).replace("%target%", target.getName()).replace("%mode%", mode)));
 
                 }
 
@@ -102,7 +102,7 @@ public class GmCommand implements CommandExecutor {
                     mode = config.getConfiguration().getString("gm3_name");
                     plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), "gamemode spectator %player%".replace("%player%", target.getName()));
                     assert mode != null;
-                    sender.sendMessage(ChatColor.GREEN + Objects.requireNonNull(config.getConfiguration().getString("success_gm")).replace("%target%", target.getName()).replace("%mode%", mode));
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getConfiguration().getString("success_gm")).replace("%target%", target.getName()).replace("%mode%", mode)));
 
                 }
 

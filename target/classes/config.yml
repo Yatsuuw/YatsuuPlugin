@@ -2,63 +2,64 @@
 plugin_on: "YatsuuPlugin are ON !"
 plugin_off: "YatsuuPlugin are OFF !"
 
-usage_gm: "Usage: /gm <mode : 0 | 1 | 2 | 3> <player>"
-success_gm: "The game mode of %target% has been changed to %mode%."
+usage_gm: "&eYatsuuPlugin &f>&4 Usage: /gm <mode : 0 | 1 | 2 | 3> <player>"
+success_gm: "&eYatsuuPlugin &f>&a The game mode of %target% has been changed to %mode%."
 gm0_name: "survival"
 gm1_name: "creative"
 gm2_name: "adventure"
 gm3_name: "spectator"
 
-success_day: "Time has been turned into day."
+success_day: "&eYatsuuPlugin &f>&a Time has been turned into day."
 
-success_night: "Time has been turned into night."
+success_night: "&eYatsuuPlugin &f>&a Time has been turned into night."
 
-success_sun: "The weather turned sunny."
+success_sun: "&eYatsuuPlugin &f>&a The weather turned sunny."
 
-success_rain: "The weather turned rainy."
+success_rain: "&eYatsuuPlugin &f>&a The weather turned rainy."
 
-success_thunder: "The weather turned stormy."
+success_thunder: "&eYatsuuPlugin &f>&a The weather turned stormy."
 
-success_feed: "You've been fed."
-target_success_feed: "%target% has been fed."
+success_feed: "&eYatsuuPlugin &f>&a You've been fed."
+target_success_feed: "&eYatsuuPlugin &f>&a %target% has been fed."
 
-success_heal: "You've been treated."
-target_success_heal: "%target% has been treated."
+success_heal: "&eYatsuuPlugin &f>&a You've been treated."
+target_success_heal: "&eYatsuuPlugin &f>&a %target% has been treated."
 
-commands: "Available commands :"
+commands: "&eYatsuuPlugin &f>&a Available commands :&e"
+command_format: "&e/{command} : &f{description}"
 
-success_reload: "The configuration has been reloaded."
-fail_reload: "The configuration could not be reloaded."
+success_reload: "&eYatsuuPlugin &f>&a The configuration has been reloaded."
+fail_reload: "&eYatsuuPlugin &f>&4 The configuration could not be reloaded."
 
-hunger_enabled: "Your food loss has been activated."
-hunger_enabled_target: "Food loss has been activated for %target%."
-hunger_disabled: "Your food loss has been deactivated."
-hunger_disabled_target: "Food loss has been disabled for %target%."
+hunger_enabled: "&eYatsuuPlugin &f>&a Your food loss has been activated."
+hunger_enabled_target: "&eYatsuuPlugin &f>&a Food loss has been activated for %target%."
+hunger_disabled: "&eYatsuuPlugin &f>&a Your food loss has been deactivated."
+hunger_disabled_target: "&eYatsuuPlugin &f>&a Food loss has been disabled for %target%."
 
-no_target: "The specified player cannot be found."
-target_required: "You must specify a player."
-no_permission: "You do not have {permission} to run this command."
-console_command_sender: "This command can only be executed by a player."
+no_target: "&eYatsuuPlugin &f>&c The specified player cannot be found."
+target_required: "&eYatsuuPlugin &f>&c You must specify a player."
+no_permission: "&eYatsuuPlugin &f>&4 You do not have {permission} to run this command."
+console_command_sender: "&eYatsuuPlugin &f>&c This command can only be executed by a player."
 
-join_message: "§a+ %prefix% §f%name%"
-quit_message: "§1- %prefix% §f%name%"
+join_message: "&a+ %prefix% &f%name%"
+quit_message: "&1- %prefix% &f%name%"
 
-fly_enabled: "Flight mode has been enabled."
-fly_target_enabled: "Flight mode has been enabled for "
-fly_disabled: "Flight mode has been disabled."
-fly_target_disabled: "Flight mode has been disabled for "
+fly_enabled: "&eYatsuuPlugin &f>&a Flight mode has been enabled."
+fly_target_enabled: "&eYatsuuPlugin &f>&a Flight mode has been enabled for "
+fly_disabled: "&eYatsuuPlugin &f>&a Flight mode has been disabled."
+fly_target_disabled: "&eYatsuuPlugin &f>&a Flight mode has been disabled for "
 
-flyspeed_set: "Flight speed set to {speed}."
-flyspeed_usage: "Usage: /flyspeed <speed> [player]"
-flyspeed_invalid: "Invalid speed value. Please enter a number between 0.0 and 1.0."
-flyspeed_success_target: "Flight speed set to {speed} for {player}"
-flyspeed_success: "Flight speed set to {speed}."
-flyspeed_value: "Your flight speed is {speed}."
+flyspeed_set: "&eYatsuuPlugin &f>&a Flight speed set to {speed}."
+flyspeed_usage: "&eYatsuuPlugin &f>&a Usage: /flyspeed <speed> [player]"
+flyspeed_invalid: "&eYatsuuPlugin &f>&c Invalid speed value. Please enter a number between 0.0 and 1.0."
+flyspeed_success_target: "&eYatsuuPlugin &f>&a Flight speed set to {speed} for {player}"
+flyspeed_success: "&eYatsuuPlugin &f>&a Flight speed set to {speed}."
+flyspeed_value: "&eYatsuuPlugin &f>&a Your flight speed is {speed}."
 
-teleport_spawn_message: "Zoup!"
-teleport_spawn_message_target: "You've just been teleported to the server spawn!"
-sender_teleport_spawn_message: "The player %player% has been teleported to the server spawn."
-spawn_set: "Spawn location and direction set !"
+teleport_spawn_message: "&eYatsuuPlugin &f>&a Zoup!"
+teleport_spawn_message_target: "&eYatsuuPlugin &f>&a You've just been teleported to the server spawn!"
+sender_teleport_spawn_message: "&eYatsuuPlugin &f>&a The player %player% has been teleported to the server spawn."
+spawn_set: "&eYatsuuPlugin &f>&a Spawn location and direction set !"
 
 spawn:
   world: world
