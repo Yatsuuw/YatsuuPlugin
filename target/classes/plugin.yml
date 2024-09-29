@@ -44,15 +44,15 @@ commands:
     usage: /heal [player]
     permission: yatsuuplugin.command.heal
     default: op
-  ypl:
+  yphelp:
     description: Lists the commands available for the plugin.
     usage: /ypl
-    permission: yatsuuplugin.command.ypl
+    permission: yatsuuplugin.command.yphelp
     default: op
-  yload:
+  ypload:
     description: Reloads the plugin configuration.
     usage: /yload
-    permission: yatsuuplugin.command.yload
+    permission: yatsuuplugin.command.ypload
     default: op
   gm:
     description: Changes the player's game mode according to the number shown.

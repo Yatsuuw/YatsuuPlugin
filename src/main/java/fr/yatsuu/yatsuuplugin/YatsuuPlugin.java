@@ -66,8 +66,8 @@ public class YatsuuPlugin extends JavaPlugin implements Listener {
         this.getCommand("togglehunger").setExecutor(new ToggleHungerCommand(this));
         this.getCommand("heal").setExecutor(new HealCommand());
 
-        this.getCommand("ypl").setExecutor(new YplCommand(this));
-        this.getCommand("yload").setExecutor(new YloadCommand(config));
+        this.getCommand("yphelp").setExecutor(new YphelpCommand(this));
+        this.getCommand("ypload").setExecutor(new YploadCommand(config));
 
         this.getCommand("gm").setExecutor(new GmCommand(this));
 
